@@ -1,4 +1,4 @@
-# Logprinter v1.0
+# Logprinter v1.1
 #### A library providing a class with methods to print text to the terminal and save text to a log file with levels of priority
 
 ## Requirements:
