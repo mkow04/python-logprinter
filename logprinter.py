@@ -2,7 +2,7 @@
 # Header
 
 __package_name__ = "logprinter"
-__version__ = "v1.0"
+__version__ = "v1.1"
 __license__ = "Unlicense"
 
 __author__ = "mkow04"
@@ -51,7 +51,7 @@ Theme = TypedDict("Theme", {level: ThemeEntry for level in LogLevel})
 
 DEFAULT_THEME: Theme = {
     LogLevel.DEBUG:  ThemeEntry(display="λ", primary=Color.DARK_MAGENTA,   secondary=Color.MAGENTA),
-    LogLevel.NORMAL: ThemeEntry(display="x", primary=Color.DARK_GRAY,      secondary=Color.GRAY),
+    LogLevel.NORMAL: ThemeEntry(display="x", primary=Color.BLACK,          secondary=Color.GRAY),
     LogLevel.PROMPT: ThemeEntry(display="%", primary=Color.DARK_GREEN,     secondary=Color.GREEN),
     LogLevel.MOTD:   ThemeEntry(display="-", primary=Color.DARK_BLUE,      secondary=Color.BLUE),
     LogLevel.INFO:   ThemeEntry(display="i", primary=Color.DARK_CYAN,      secondary=Color.CYAN),
@@ -132,7 +132,9 @@ class Logprinter:
         else:
             name = level.name
 
-        self.append_to_log_file(f"{name: <6} {time} {text}")
+        formatted_text = text.replace("\n", "\\n ")
+
+        self.append_to_log_file(f"{name: <6} {time} {formatted_text}")
 
 ################################
 # Logging to terminal
