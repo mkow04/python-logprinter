@@ -1,8 +1,8 @@
-# Logprinter v1.1
+# Logprinter v1.2
 #### A library providing a class with methods to print text to the terminal and save text to a log file with levels of priority
 
 ## Requirements:
- - Python3 >= v3.13.2 </br>
+ - Python3 >= v3.13 </br>
  - Colorclasses >= v1.0 (must be in the same directory as of now)</br>
 
 ## Importing

@@ -2,7 +2,7 @@
 # Header
 
 __package_name__ = "logprinter"
-__version__ = "v1.1"
+__version__ = "v1.2"
 __license__ = "Unlicense"
 
 __author__ = "mkow04"
@@ -62,7 +62,7 @@ DEFAULT_THEME: Theme = {
 
 ################################################################
 
-def get_utc_time(timezone=timezone.utc, format="%Y-%m-%dT%H:%M:%SZ") -> str:
+def get_utc_time(timezone=timezone.utc, format="%Y-%m-%d_%H-%M-%S") -> str:
     utc_time = datetime.now(timezone)
     return utc_time.strftime(format)
 
@@ -95,7 +95,7 @@ class Logprinter:
         if file_log_path_folder is not None:
             self.file_log_level = file_log_level
             self.file_log_path_folder = Path(file_log_path_folder).expanduser()
-            self.file_log_name = get_utc_time(format="%Y-%m-%dT%H:%M:%SZ.log")
+            self.file_log_name = get_utc_time(format="%Y-%m-%d_%H-%M-%S.log")
             self.file_log_path = self.file_log_path_folder / self.file_log_name
 
             try:
